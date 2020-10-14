@@ -150,7 +150,6 @@ class Kamus extends CI_Controller
         }
     }
 
-
     public function peserta()
     {
         //datatbel
@@ -161,7 +160,6 @@ class Kamus extends CI_Controller
             $no = $_POST['start'];
             foreach ($list as $al) {
                 $tolak = base_url('Panel/peserta/tolak?id='.$al->id_verif);
-                
                 $no++;
                 $row = array();
                 $row[] = $no++;
@@ -196,9 +194,6 @@ class Kamus extends CI_Controller
             $this->template($params);
         }
     }
-
-    
-
 
     public function adm()
     {

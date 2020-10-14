@@ -35,11 +35,60 @@ class Belakang extends CI_Controller
     }
     public function prodi()
     {
-        $params = [
-            'title' => "Prodi",
-            'page' => 'admin/prodi/prodi'
-        ];
-        $this->template($params);
+        if($this->u3 == "reg_data"){
+            $list = $this->M_Universal->get_datatables($this->id);
+            $data = array();
+            $no = $_POST['start'];
+            foreach ($list as $al) {
+                $no++;
+                $row = array();
+                $row[] = $no++;
+                $row[] = $al->kd_prodi;
+                $row[] = $al->nama;
+                $row[] = '<a class="btn btn-info" href="'.base_url().'Panel/peserta/detail?id='.$al->id_peserta.'" target="_blank">Lihat</a>';
+                $data[] = $row;
+            }
+             $output = array(
+                "data" => $data
+            );
+            // $output = array(
+            //     "draw" => (!isset($_POST['draw']))? 1:$_POST['draw'],
+            //     "recordsTotal" => $this->M_admin->count_all($this->id),
+            //     "recordsFiltered" => $this->M_admin->count_filtered($this->id),
+            //     "data" => $data
+            // );
+            echo json_encode($output);
+        } else if ($this->u4 == "tambah") {
+            $config_rules = [
+                array(
+                    'field' => 'kode_prodi',
+                    'label' => 'Kode Prodi',
+                    'rules' => 'required|trim|numeric'
+                ),
+                array(
+                    'field' => 'nama_prodi',
+                    'label' => 'Nama Prodi',
+                    'rules' => 'required|trim'
+                ),
+            ];
+            $this->load->library('form_validation');
+            $this->form_validation($config_rules);
+            if($this->form_validation->run() == true){
+                $post = [
+                    'kd_prodi' => $this->input->post('kode_prodi',true),
+                    'nama_prodi' => $this->input->post('nama_prodi',true)
+                ];
+                $insert			 = $this->M_Universal->insert($post, 'admin');
+                ($insert) ?  $this->notifikasi->suksesAdd("tambah data baru") : $this->notifikasi->gagalAdd();
+                redirect(base_url('prodi'), 'refresh');
+            }
+        }else {
+            $params = [
+                'title' => "Prodi",
+                'page' => 'admin/prodi/v_prodi'
+            ];
+            $this->template($params);
+        }
     }
     public function template($params = array())
     {
@@ -143,6 +192,50 @@ class Belakang extends CI_Controller
             }
             return 0;
         }
+    }
+    public function upload_file($name,$lokasi,$tipe, $maxsize){
+        $config['upload_path']    = './upload/'.$lokasi;
+        $config['allowed_types']  = $tipe;
+        $config['detect_mime']	  = true;
+        $config['encrypt_name']   = true;
+        $config['allowed_types']  = $tipe;
+        $config['max_size']       = $maxsize;
+        $this->load->library('upload', $config);
+        if (!empty($_FILES[$name]['tmp_name'])) {
+            if (! $this->upload->do_upload($name)) {
+               return array(
+                    'ket' => 'gagal',
+                    'file' => $this->upload->display_errors()
+                );
+            } else {
+                return array(
+                    'ket' => 'sukses',
+                    'file' => $this->upload->data('file_name')
+                );
+            }
+        }
+    }
+    function enkrip($string){
+        $bumbu = md5(str_replace("=", "", base64_encode("bunghasta.com")));
+        $katakata = false;
+        $metodeenkrip = "AES-256-CBC";
+        $kunci = hash('sha256', $bumbu);
+        $kodeiv = substr(hash('sha256', $bumbu), 0, 16);
+        
+        $katakata = str_replace("=", "", openssl_encrypt($string, $metodeenkrip, $kunci, 0, $kodeiv));
+        $katakata = str_replace("=", "", base64_encode($katakata));
+        
+        return $katakata;
+    }
+    function dekrip($string){
+        $bumbu = md5(str_replace("=", "", base64_encode("bunghasta.com")));
+        $katakata = false;
+        $metodeenkrip = "AES-256-CBC";
+        $kunci = hash('sha256', $bumbu);
+        $kodeiv = substr(hash('sha256', $bumbu), 0, 16);
+        
+        $katakata = openssl_decrypt(base64_decode($string), $metodeenkrip, $kunci, 0, $kodeiv);
+        return $katakata;
     }
 }
 /* End of file Belakang.php */

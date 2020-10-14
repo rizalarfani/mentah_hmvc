@@ -1,83 +1,56 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="en">
+<head><title>Login Dashboard</title>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="novalassalam | vkb">
-    <meta name="robots" content="none">
-    <meta name="robots" content="noindex, nofollow">
-    <meta name="googlebot" content="noindex">
-    <link rel="shortcut icon" href="<?php echo base_url()?>assets/adminto/assets/images/favicon.ico">
-    <title>Dashboard </title>
-    <!-- App css -->
-    <link href="<?php echo base_url()?>assets/adminto/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="<?php echo base_url()?>assets/adminto/assets/css/icons.css" rel="stylesheet" type="text/css" />
-    <link href="<?php echo base_url()?>assets/adminto/assets/css/style.css" rel="stylesheet" type="text/css" />
-    <script src="<?php echo base_url()?>assets/adminto/assets/js/modernizr.min.js"></script>
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="Thu, 19 Nov 1900 08:52:00 GMT">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>assets/admin/vendors/jquery-ui-1.10.3.custom/css/ui-lightness/jquery-ui-1.10.3.custom.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>assets/admin/vendors/font-awesome/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>assets/admin/vendors/bootstrap/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>assets/admin/vendors/animate.css/animate.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>assets/admin/vendors/iCheck/skins/all.css">
+    <!--Loading style-->
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>assets/admin/css/themes/style1/pink-blue.css" class="default-style">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>assets/admin/css/themes/style1/pink-blue.css" id="theme-change"
+          class="style-change color-change">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>assets/admin/css/style-responsive.css">
 </head>
-<body>
-    <div class="account-pages"></div>
-    <div class="clearfix"></div>
-    <div class="wrapper-page">
-        <div class="text-center">
-            <a href="index.html" class="logo"><span>nama<span class="ml-2">aplikasi</span></span></a>
-        </div>
-        <div class="m-t-40 card-box">
-            <div class="text-center">
-                <h4 class="text-uppercase font-bold m-b-0">Sign In</h4>
+<body id="signin-page">
+<div class="page-form">
+    <form method="post" action="<?php echo base_url('Admin_login/proses');?>">
+        <div class="header-content"><h1>Log In</h1></div>
+        <div class="body-content">
+            <div class="form-group">
+                <div class="input-icon right"><i class="fa fa-user"></i><input type="text" placeholder="Username" name="username" class="form-control">
+                </div>
             </div>
-            <div class="p-20">
-                <form class="form-horizontal m-t-20" method="post" action="<?php echo base_url('Admin_login/proses');?>">
-                    <div class="form-group">
-                        <div class="col-xs-12">
-                            <input class="form-control" type="text" required=""  name="username" placeholder="Username">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-xs-12">
-                            <input class="form-control" type="password" name="password" required="" placeholder="Password">
-                        </div>
-                    </div>
-                    <div class="form-group ">
-                        <div class="col-xs-12">
-                            <div class="checkbox checkbox-custom">
-                                <input id="checkbox-signup" type="checkbox" name="remember">
-                                <label for="checkbox-signup">
-                                    Remember me
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group text-center m-t-30">
-                        <div class="col-xs-12">
-                            <button class="btn btn-custom btn-bordred btn-block waves-effect waves-light" type="submit">Log In</button>
-                        </div>
-                    </div>
-                    <div class="form-group m-t-30 m-b-0">
-                        <div class="col-sm-12">
-                            <a href="page-recoverpw.html" class="text-muted"><i class="fa fa-lock m-r-5"></i> Forgot your password?</a>
-                        </div>
-                    </div>
-                </form>
+            <div class="form-group">
+                <div class="input-icon right"><i class="fa fa-key"></i><input type="password" placeholder="Password" name="password" class="form-control">
+                </div>
             </div>
+            <div class="form-group pull-left">
+                <div class="checkbox-list"><label><input name="remember" type="checkbox">&nbsp;
+                    Remember Me</label></div>
+            </div>
+            <div class="form-group pull-right">
+                <button type="submit" class="btn btn-success">Log In
+                    &nbsp;<i class="fa fa-chevron-circle-right"></i></button>
+            </div>
+            <div class="clearfix">
         </div>
-        <!-- end card-box-->
-    </div>
-    <!-- end wrapper page -->
-    <!-- jQuery  -->
-    <script src="<?php echo base_url()?>assets/adminto/assets/js/jquery.min.js"></script>
-    <script src="<?php echo base_url()?>assets/adminto/assets/js/popper.min.js"></script>
-    <script src="<?php echo base_url()?>assets/adminto/assets/js/bootstrap.min.js"></script>
-    <script src="<?php echo base_url()?>assets/adminto/assets/js/detect.js"></script>
-    <script src="<?php echo base_url()?>assets/adminto/assets/js/fastclick.js"></script>
-    <script src="<?php echo base_url()?>assets/adminto/assets/js/jquery.blockUI.js"></script>
-    <script src="<?php echo base_url()?>assets/adminto/assets/js/waves.js"></script>
-    <script src="<?php echo base_url()?>assets/adminto/assets/js/jquery.nicescroll.js"></script>
-    <script src="<?php echo base_url()?>assets/adminto/assets/js/jquery.slimscroll.js"></script>
-    <script src="<?php echo base_url()?>assets/adminto/assets/js/jquery.scrollTo.min.js"></script>
-    <!-- App js -->
-    <script src="<?php echo base_url()?>assets/adminto/assets/js/jquery.core.js"></script>
-    <script src="<?php echo base_url()?>assets/adminto/assets/js/jquery.app.js"></script>
+    </form>
+</div>
+    <script src="<?php echo base_url() ?>assets/admin/js/jquery-1.10.2.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/admin/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/admin/js/jquery-ui.js"></script>
+    <!--loading bootstrap js-->
+    <script src="<?php echo base_url() ?>assets/admin/vendors/bootstrap/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/admin/vendors/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js"></script>
+    <script src="<?php echo base_url() ?>assets/admin/js/html5shiv.js"></script>
+    <script src="<?php echo base_url() ?>assets/admin/js/respond.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/admin/vendors/iCheck/icheck.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/admin/vendors/iCheck/custom.min.js"></script>
 </body>
 </html>

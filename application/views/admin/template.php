@@ -1,268 +1,114 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+    <title><?php echo $title ?></title>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="angkasa bahari software development tegal">
-    <meta name="author" content="novalassalam | vkb | angkasa bahari">
-    <meta name="robots" content="none">
-    <link rel="shortcut icon"
-        href="<?php echo base_url()?>assets/adminto/assets/images/favicon.ico">
-    <title>Dashboard </title>
-    <!--Morris Chart CSS -->
-    <link rel="stylesheet"
-        href="<?php echo base_url()?>assets/adminto/assets/plugins/morris/morris.css">
-
-    <!-- App css -->
-    <link
-        href="<?php echo base_url()?>assets/adminto/assets/css/bootstrap.min.css"
-        rel="stylesheet" type="text/css" />
-    <link
-        href="<?php echo base_url()?>assets/adminto/assets/css/icons.css"
-        rel="stylesheet" type="text/css" />
-    <link
-        href="<?php echo base_url()?>assets/adminto/assets/css/style.css"
-        rel="stylesheet" type="text/css" />
-    <script
-        src="<?php echo base_url()?>assets/adminto/assets/js/modernizr.min.js">
-    </script>
-    <script src="<?php echo base_url()?>assets/adminto/assets/js/jquery.min.js">
-    </script>
-
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="Thu, 19 Nov 1900 08:52:00 GMT">
+    <!--Loading bootstrap css-->
+    <link type="text/css" rel="stylesheet"
+          href="<?php echo base_url()?>assets/admin/vendors/jquery-ui-1.10.4.custom/css/ui-lightness/jquery-ui-1.10.4.custom.min.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/admin/vendors/font-awesome/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/admin/vendors/bootstrap/css/bootstrap.min.css">
+    <!--LOADING STYLESHEET FOR PAGE-->
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/admin/vendors/intro.js/introjs.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/admin/vendors/calendar/zabuto_calendar.min.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/admin/vendors/sco.message/sco.message.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/admin/vendors/intro.js/introjs.css">
+    <!--Loading style vendors-->
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/admin/vendors/animate.css/animate.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/admin/vendors/jquery-pace/pace.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/admin/vendors/iCheck/skins/all.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/admin/vendors/jquery-notific8/jquery.notific8.min.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/admin/vendors/bootstrap-daterangepicker/daterangepicker-bs3.css">
+    <!--Loading style-->
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/admin/css/themes/style1/orange-blue.css" class="default-style">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/admin/css/themes/style1/orange-blue.css" id="theme-change"
+          class="style-change color-change">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/admin/css/style-responsive.css">
+    <script src="<?php echo base_url()?>assets/admin/js/jquery-1.10.2.min.js"></script>
+    <script src="<?php echo base_url()?>assets/admin/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="<?php echo base_url()?>assets/admin/js/jquery-ui.js"></script>
+    <!--loading bootstrap js-->
 </head>
-
-<body class="fixed-left">
-    <!-- Begin page -->
-    <div id="wrapper">
-        <!-- Top Bar Start -->
-        <div class="topbar">
-            <!-- LOGO -->
-            <div class="topbar-left">
-                <a href="index.html" class="logo"><span>nama <span>app</span></span><i class="mdi mdi-layers"></i></a>
+<body class=" ">
+<div>
+    <!--BEGIN TOPBAR-->
+    <div id="header-topbar-option-demo" class="page-header-topbar">
+        <nav id="topbar" role="navigation" style="margin-bottom: 0; z-index: 2;"
+             class="navbar navbar-default navbar-static-top">
+            <div class="navbar-header">
+                <button type="button" data-toggle="collapse" data-target=".sidebar-collapse" class="navbar-toggle"><span
+                        class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
+                        class="icon-bar"></span><span class="icon-bar"></span></button>
+                <a id="logo" href="index.html" class="navbar-brand"><span class="fa fa-rocket"></span><span
+                        class="logo-text">PMB</span><span style="display: none" class="logo-text-icon">PMB</span></a>
             </div>
-            <!-- Button mobile view to collapse sidebar menu -->
-            <div class="navbar navbar-default" role="navigation">
-                <div class="container-fluid">
-                    <!-- Page title -->
-                    <ul class="nav navbar-nav list-inline navbar-left">
-                        <li class="list-inline-item">
-                            <button class="button-menu-mobile open-left">
-                                <i class="mdi mdi-menu"></i>
-                            </button>
-                        </li>
-                        <li class="list-inline-item">
-                            <h4 class="page-title"><?php echo $title;?>
-                            </h4>
-                        </li>
-                    </ul>
-                    <nav class="navbar-custom">
-                        <ul class="list-unstyled topbar-right-menu float-right mb-0">
-                            <li>
-                                <!-- Notification -->
-                                <div class="notification-box">
-                                    <ul class="list-inline mb-0">
-                                        <li>
-                                            <a href="javascript:void(0);" class="right-bar-toggle">
-                                                <i class="mdi mdi-bell-outline noti-icon"></i>
-                                            </a>
-                                            <div class="noti-dot">
-                                                <span class="dot"></span>
-                                                <span class="pulse"></span>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- End Notification bar -->
-                            </li>
-                            <!-- <li class="hide-phone">
-                                <form class="app-search">
-                                    <input type="text" placeholder="Search..." class="form-control">
-                                    <button type="submit"><i class="fa fa-search"></i></button>
-                                </form>
-                            </li> -->
+            <div class="topbar-main"><a id="menu-toggle" href="#" class="hidden-xs"><i class="fa fa-bars"></i></a>
+                <ul class="nav navbar-nav">
+                </ul>
+                <ul class="nav navbar navbar-top-links navbar-right mbn">
+                    <li class="dropdown topbar-user"><a data-hover="dropdown" href="#" class="dropdown-toggle"><img
+                            src="<?php echo $this->foto;?>" alt="Foto user"
+                            class="img-responsive img-circle"/>&nbsp;<span class="hidden-xs"><?php echo $this->username; ?></span>&nbsp;<span
+                            class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-user pull-right">
+                            <li><a href="<?php echo base_url('Belakang/profil/edit');?>"><i class="fa fa-user"></i>My Profile</a></li>
+                            <li><a href="<?php echo $this->logout;?>"><i class="fa fa-key"></i>Log Out</a></li>
                         </ul>
-                    </nav>
-                </div><!-- end container -->
-            </div><!-- end navbar -->
-        </div>
-        <!-- Top Bar End -->
-        <!-- ========== Left Sidebar Start ========== -->
-        <div class="left side-menu">
-            <div class="sidebar-inner slimscrollleft">
-                <!-- User -->
-                <div class="user-box">
-                    <div class="user-img">
-                        <img src="<?php echo $this->foto;?>"
-                            alt="user-img"
-                            title="<?php echo $this->username;?>"
-                            class="rounded-circle img-thumbnail img-responsive">
-                        <div class="user-status offline"><i class="mdi mdi-adjust"></i></div>
-                    </div>
-                    <h5><a href="#"><?php echo $this->username;?></a>
-                    </h5>
-                    <ul class="list-inline">
-
-                        <li class="list-inline-item">
-                            <a href="<?php echo $this->logout;?>"
-                                class="text-danger">
-                                <i class="mdi mdi-power" style="font-size:30px"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- End User -->
-                <!--- Sidemenu -->
-                <?php $this->load->view($menu); ?>
-                <!-- Sidebar -->
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <!-- Left Sidebar End -->
-        <!-- ============================================================== -->
-        <!-- Start right Content here -->
-        <!-- ============================================================== -->
-        <div class="content-page">
-            <div class="content">
-                <?php echo $this->session->flashdata('report'); ?>
-                <?php echo $this->session->flashdata('notif'); ?>
-                <?php $this->load->view($page);?>
-            </div>
-            <footer class="footer text-right">
-                © angkasabahari.co.id
-            </footer>
-        </div>
-        <!-- ============================================================== -->
-        <!-- End Right content here -->
-        <!-- ============================================================== -->
-        <!-- Right Sidebar -->
-        <div class="side-bar right-bar">
-            <a href="javascript:void(0);" class="right-bar-toggle">
-                <i class="mdi mdi-close-circle-outline"></i>
-            </a>
-            <h4 class="">Notifications</h4>
-            <div class="notification-list nicescroll">
-                <ul class="list-group list-no-border user-list">
-                    <li class="list-group-item">
-                        <a href="#" class="user-list-item">
-                            <div class="avatar">
-                                <img src="<?php echo base_url()?>assets/adminto/assets/images/users/avatar-2.jpg"
-                                    alt="">
-                            </div>
-                            <div class="user-desc">
-                                <span class="name">Michael Zenaty</span>
-                                <span class="desc">There are new settings available</span>
-                                <span class="time">2 hours ago</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#" class="user-list-item">
-                            <div class="icon bg-info">
-                                <i class="mdi mdi-account"></i>
-                            </div>
-                            <div class="user-desc">
-                                <span class="name">New Signup</span>
-                                <span class="desc">There are new settings available</span>
-                                <span class="time">5 hours ago</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#" class="user-list-item">
-                            <div class="icon bg-pink">
-                                <i class="mdi mdi-comment"></i>
-                            </div>
-                            <div class="user-desc">
-                                <span class="name">New Message received</span>
-                                <span class="desc">There are new settings available</span>
-                                <span class="time">1 day ago</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="list-group-item active">
-                        <a href="#" class="user-list-item">
-                            <div class="avatar">
-                                <img src="<?php echo base_url()?>assets/adminto/assets/images/users/avatar-3.jpg"
-                                    alt="">
-                            </div>
-                            <div class="user-desc">
-                                <span class="name">James Anderson</span>
-                                <span class="desc">There are new settings available</span>
-                                <span class="time">2 days ago</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="list-group-item active">
-                        <a href="#" class="user-list-item">
-                            <div class="icon bg-warning">
-                                <i class="mdi mdi-settings"></i>
-                            </div>
-                            <div class="user-desc">
-                                <span class="name">Settings</span>
-                                <span class="desc">There are new settings available</span>
-                                <span class="time">1 day ago</span>
-                            </div>
-                        </a>
                     </li>
                 </ul>
             </div>
+        </nav>
+        <!--END MODAL CONFIG PORTLET--></div>
+    <!--END TOPBAR-->
+    <div id="wrapper">
+        <!--BEGIN SIDEBAR MENU-->
+        <?php $this->load->view($menu); ?>
+        <!--END SIDEBAR MENU-->
+        <!--BEGIN PAGE WRAPPER-->
+        <div id="page-wrapper">
+            <?php echo $this->session->flashdata('report'); ?>
+            <?php echo $this->session->flashdata('notif'); ?>
+            <?php $this->load->view($page);?>
         </div>
-        <!-- /Right-bar -->
+        <!--BEGIN FOOTER-->
+        <div id="footer">
+            <div class="copyright">2014 © &mu;Admin - Responsive Multi-Style Admin Template</div>
+        </div>
+        <!--END FOOTER-->
     </div>
-    <!-- END wrapper -->
-    <!-- jQuery  -->
-
-
-    <script src="<?php echo base_url()?>assets/adminto/assets/js/popper.min.js">
-    </script>
-    <script
-        src="<?php echo base_url()?>assets/adminto/assets/js/bootstrap.min.js">
-    </script>
-    <script src="<?php echo base_url()?>assets/adminto/assets/js/detect.js">
-    </script>
-    <script src="<?php echo base_url()?>assets/adminto/assets/js/fastclick.js">
-    </script>
-    <script
-        src="<?php echo base_url()?>assets/adminto/assets/js/jquery.blockUI.js">
-    </script>
-    <script src="<?php echo base_url()?>assets/adminto/assets/js/waves.js">
-    </script>
-    <script
-        src="<?php echo base_url()?>assets/adminto/assets/js/jquery.nicescroll.js">
-    </script>
-    <script
-        src="<?php echo base_url()?>assets/adminto/assets/js/jquery.slimscroll.js">
-    </script>
-    <script
-        src="<?php echo base_url()?>assets/adminto/assets/js/jquery.scrollTo.min.js">
-    </script>
-    <!-- KNOB JS -->
-    <!--[if IE]>
-<script type="text/javascript" src="assets/plugins/jquery-knob/excanvas.js"></script>
-<![endif]-->
-    <script
-        src="<?php echo base_url()?>assets/adminto/assets/plugins/jquery-knob/jquery.knob.js">
-    </script>
-    <!--Morris Chart-->
-    <script
-        src="<?php echo base_url()?>assets/adminto/assets/plugins/morris/morris.min.js">
-    </script>
-    <script
-        src="<?php echo base_url()?>assets/adminto/assets/plugins/raphael/raphael-min.js">
-    </script>
-    <!-- Dashboard init -->
-    <script
-        src="<?php echo base_url()?>assets/adminto/assets/pages/jquery.dashboard.js">
-    </script>
-    <!-- App js -->
-    <script
-        src="<?php echo base_url()?>assets/adminto/assets/js/jquery.core.js">
-    </script>
-    <script src="<?php echo base_url()?>assets/adminto/assets/js/jquery.app.js">
-    </script>
-    <!-- Sweet Alert Js  -->
-
+     <!--END PAGE WRAPPER-->
+</div>
+<script src="<?php echo base_url()?>assets/admin/vendors/bootstrap/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url()?>assets/admin/vendors/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js"></script>
+<script src="<?php echo base_url()?>assets/admin/js/html5shiv.js"></script>
+<script src="<?php echo base_url()?>assets/admin/js/respond.min.js"></script>
+<script src="<?php echo base_url()?>assets/admin/vendors/metisMenu/jquery.metisMenu.js"></script>
+<script src="<?php echo base_url()?>assets/admin/vendors/slimScroll/jquery.slimscroll.js"></script>
+<script src="<?php echo base_url()?>assets/admin/vendors/jquery-cookie/jquery.cookie.js"></script>
+<script src="<?php echo base_url()?>assets/admin/vendors/iCheck/icheck.min.js"></script>
+<script src="<?php echo base_url()?>assets/admin/vendors/iCheck/custom.min.js"></script>
+<script src="<?php echo base_url()?>assets/admin/vendors/jquery-notific8/jquery.notific8.min.js"></script>
+<script src="<?php echo base_url()?>assets/admin/vendors/jquery-highcharts/highcharts.js"></script>
+<script src="<?php echo base_url()?>assets/admin/js/jquery.menu.js"></script>
+<script src="<?php echo base_url()?>assets/admin/vendors/jquery-pace/pace.min.js"></script>
+<script src="<?php echo base_url()?>assets/admin/vendors/holder/holder.js"></script>
+<script src="<?php echo base_url()?>assets/admin/vendors/responsive-tabs/responsive-tabs.js"></script>
+<script src="<?php echo base_url()?>assets/admin/vendors/jquery-news-ticker/jquery.newsTicker.min.js"></script>
+<script src="<?php echo base_url()?>assets/admin/vendors/moment/moment.js"></script>
+<script src="<?php echo base_url()?>assets/admin/vendors/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="<?php echo base_url()?>assets/admin/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+<!--CORE JAVASCRIPT-->
+<script src="<?php echo base_url()?>assets/admin/js/main.js"></script>
+<!--LOADING SCRIPTS FOR PAGE-->
+<script src="<?php echo base_url()?>assets/admin/vendors/intro.js/intro.js"></script>
+<script src="<?php echo base_url()?>assets/admin/vendors/calendar/zabuto_calendar.min.js"></script>
+<script src="<?php echo base_url()?>assets/admin/vendors/sco.message/sco.message.js"></script>
+<script src="<?php echo base_url()?>assets/admin/vendors/intro.js/intro.js"></script>
+<script src="<?php echo base_url()?>assets/admin/js/index.js"></script>
+</script>
 </body>
-
 </html>

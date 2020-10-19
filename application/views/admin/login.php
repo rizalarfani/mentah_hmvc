@@ -19,7 +19,8 @@
 </head>
 <body id="signin-page">
 <div class="page-form">
-    <form method="post" action="<?php echo base_url('Admin_login/proses');?>">
+    <?php echo form_open('Admin_login/proses') ?>
+        <input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="<?=$this->security->get_csrf_hash();?>" style="display: none">
         <div class="header-content"><h1>Log In</h1></div>
         <div class="body-content">
             <div class="form-group">
@@ -40,7 +41,7 @@
             </div>
             <div class="clearfix">
         </div>
-    </form>
+    <?php echo form_close(); ?>
 </div>
     <script src="<?php echo base_url() ?>assets/admin/js/jquery-1.10.2.min.js"></script>
     <script src="<?php echo base_url() ?>assets/admin/js/jquery-migrate-1.2.1.min.js"></script>

@@ -29,6 +29,10 @@
                 <ul class="nav nav-second-level">
                     <li id="prodi"><a href="<?php echo base_url('prodi');?>"><i class="fa fa-user"></i><span class="submenu-title">Prodi</span></a>
                     </li>
+                    <li id="slider"><a href="<?php echo base_url('slider');?>"><i class="fa fa-sliders-h"></i><span class="submenu-title">Slider</span></a>
+                    </li>
+                    <!-- <li id="kebutuhan"><a href="<?php echo base_url('kebutuhan_khusus');?>"><i class="fa fa-user"></i><span class="submenu-title">Data kebutuhan khusus</span></a>
+                    </li> -->
                 </ul>
             </li>
         </ul>

@@ -14,8 +14,6 @@
     <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/admin/vendors/bootstrap/css/bootstrap.min.css">
     <!--LOADING STYLESHEET FOR PAGE-->
     <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/admin/vendors/intro.js/introjs.css">
-    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/admin/vendors/calendar/zabuto_calendar.min.css">
-    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/admin/vendors/sco.message/sco.message.css">
     <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/admin/vendors/intro.js/introjs.css">
     <!--Loading style vendors-->
     <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/admin/vendors/animate.css/animate.css">
@@ -25,17 +23,13 @@
     <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/admin/vendors/bootstrap-daterangepicker/daterangepicker-bs3.css">
     <!--Loading style-->
     <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/admin/css/themes/style1/orange-blue.css" class="default-style">
-    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/admin/css/themes/style1/orange-blue.css" id="theme-change"
-          class="style-change color-change">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/admin/css/themes/style1/orange-blue.css" id="theme-change" class="style-change color-change">
     <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/admin/css/style-responsive.css">
-    <script src="<?php echo base_url()?>assets/admin/js/jquery-1.10.2.min.js"></script>
-    <script src="<?php echo base_url()?>assets/admin/js/jquery-migrate-1.2.1.min.js"></script>
-    <script src="<?php echo base_url()?>assets/admin/js/jquery-ui.js"></script>
-    <!--loading bootstrap js-->
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/admin/vendors/sweetalert2/sweetalert2.min.css">
+    <script src="<?php echo base_url()?>assets/admin/js/jquery-3.5.1.min.js"></script>
 </head>
 <body class=" ">
 <div>
-    <!--BEGIN TOPBAR-->
     <div id="header-topbar-option-demo" class="page-header-topbar">
         <nav id="topbar" role="navigation" style="margin-bottom: 0; z-index: 2;"
              class="navbar navbar-default navbar-static-top">
@@ -82,6 +76,7 @@
     </div>
      <!--END PAGE WRAPPER-->
 </div>
+<script src="<?php echo base_url()?>assets/admin/js/jquery-ui.js"></script>
 <script src="<?php echo base_url()?>assets/admin/vendors/bootstrap/js/bootstrap.min.js"></script>
 <script src="<?php echo base_url()?>assets/admin/vendors/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js"></script>
 <script src="<?php echo base_url()?>assets/admin/js/html5shiv.js"></script>
@@ -92,12 +87,10 @@
 <script src="<?php echo base_url()?>assets/admin/vendors/iCheck/icheck.min.js"></script>
 <script src="<?php echo base_url()?>assets/admin/vendors/iCheck/custom.min.js"></script>
 <script src="<?php echo base_url()?>assets/admin/vendors/jquery-notific8/jquery.notific8.min.js"></script>
-<script src="<?php echo base_url()?>assets/admin/vendors/jquery-highcharts/highcharts.js"></script>
 <script src="<?php echo base_url()?>assets/admin/js/jquery.menu.js"></script>
 <script src="<?php echo base_url()?>assets/admin/vendors/jquery-pace/pace.min.js"></script>
 <script src="<?php echo base_url()?>assets/admin/vendors/holder/holder.js"></script>
 <script src="<?php echo base_url()?>assets/admin/vendors/responsive-tabs/responsive-tabs.js"></script>
-<script src="<?php echo base_url()?>assets/admin/vendors/jquery-news-ticker/jquery.newsTicker.min.js"></script>
 <script src="<?php echo base_url()?>assets/admin/vendors/moment/moment.js"></script>
 <script src="<?php echo base_url()?>assets/admin/vendors/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 <script src="<?php echo base_url()?>assets/admin/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
@@ -105,10 +98,7 @@
 <script src="<?php echo base_url()?>assets/admin/js/main.js"></script>
 <!--LOADING SCRIPTS FOR PAGE-->
 <script src="<?php echo base_url()?>assets/admin/vendors/intro.js/intro.js"></script>
-<script src="<?php echo base_url()?>assets/admin/vendors/calendar/zabuto_calendar.min.js"></script>
-<script src="<?php echo base_url()?>assets/admin/vendors/sco.message/sco.message.js"></script>
-<script src="<?php echo base_url()?>assets/admin/vendors/intro.js/intro.js"></script>
-<script src="<?php echo base_url()?>assets/admin/js/index.js"></script>
+<script src="<?php echo base_url()?>assets/admin/vendors/sweetalert2/sweetalert2.min.js"></script>
 </script>
 </body>
 </html>

@@ -29,7 +29,7 @@
                     if($a = file_exists('upload/profil/'.$data->foto_adm)){
                       $gambar = base_url('upload/profil/'.$data->foto_adm);
                       } else {
-                        $gambar = base_url('assets/adminto/assets/images/users/avatar-1.jpg');
+                        $gambar =base_url('assets/admin/images/avatar/avatar5.png');
                       }
                       echo $gambar;?>" alt="foto user" >
                 </a>

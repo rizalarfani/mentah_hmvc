@@ -12,12 +12,12 @@ $(function () {
             $('div.sidebar-collapse').css('height', 'auto');
         }
 
-        if($('#sidebar').height() > $('#page-wrapper').height()){
+        if ($('#sidebar').height() > $('#page-wrapper').height()) {
             $('#wrapper').css('height', $('#sidebar').height());
         }
     });
 
-    $('#news-ticker-close').click(function(e){
+    $('#news-ticker-close').click(function (e) {
         $('.news-ticker').remove();
         $('.quick-sidebar').css('top', '50px');
     });
@@ -31,7 +31,7 @@ $(function () {
     //END TOPBAR DROPDOWN
 
     //BEGIN CHECKBOX & RADIO
-    if($('#demo-checkbox-radio').length <= 0){
+    if ($('#demo-checkbox-radio').length <= 0) {
         $('input[type="checkbox"]:not(".switch")').iCheck({
             checkboxClass: 'icheckbox_minimal-grey',
             increaseArea: '20%' // optional
@@ -52,8 +52,8 @@ $(function () {
     //END POPOVER
 
     //BEGIN THEME SETTING
-    $('#theme-setting > a.btn-theme-setting').click(function(){
-        if($('#theme-setting').css('right') < '0'){
+    $('#theme-setting > a.btn-theme-setting').click(function () {
+        if ($('#theme-setting').css('right') < '0') {
             $('#theme-setting').css('right', '0');
         } else {
             $('#theme-setting').css('right', '-250px');
@@ -69,18 +69,18 @@ $(function () {
     // FUNCTION CHANGE URL STYLE ON HEAD TAG
     var setTheme = function (menu_style, style, header, color) {
         $.cookie('menu_style', menu_style);
-        $.cookie('style',style);
+        $.cookie('style', style);
         $.cookie('header', header);
-        $.cookie('color',color);
+        $.cookie('color', color);
 
         $('body').removeClass();
         $('body').addClass(menu_style + ' ' + header);
         // Set slimscroll when sidebar fixed
         if ($.cookie('header') == 'header-fixed') {
             if ($('body').hasClass('sidebar-collapsed')) {
-                $('#side-menu').attr('style','').parent('.slimScrollDiv').replaceWith($('#side-menu'));
+                $('#side-menu').attr('style', '').parent('.slimScrollDiv').replaceWith($('#side-menu'));
             } else {
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#side-menu').slimScroll({
                         "height": $(window).height() - 100,
                         'width': '250px',
@@ -90,10 +90,10 @@ $(function () {
                 }, 500)
             }
         } else {
-            $('#side-menu').attr('style','').parent('.slimScrollDiv').replaceWith($('#side-menu'));
+            $('#side-menu').attr('style', '').parent('.slimScrollDiv').replaceWith($('#side-menu'));
         }
-        
-        $('#theme-change').attr('href', 'css/themes/'+ style + '/' + color + '.css');
+
+        $('#theme-change').attr('href', 'css/themes/' + style + '/' + color + '.css');
     }
     // INITIALIZE THEME FROM COOKIE
     // --NOTES: HAVE TO SET VALUE FOR STYLE & COLOR BEFORE AND AFTER ACTIVE THEME
@@ -103,39 +103,39 @@ $(function () {
         if ($('body').hasClass('clear-cookie')) {
             $.removeCookie('menu_style');
         } else {
-            list_menu.find('option').each(function(){
-                if($(this).attr('value') == $.cookie('menu_style')) {
-                    $(this).attr('selected', 'selected');
-                }
-            });
-            
-            list_style.find('option').each(function(){
-                if($(this).attr('value') == $.cookie('style')) {
+            list_menu.find('option').each(function () {
+                if ($(this).attr('value') == $.cookie('menu_style')) {
                     $(this).attr('selected', 'selected');
                 }
             });
 
-            list_header.find('option').each(function(){
-                if($(this).attr('value') == $.cookie('header')) {
+            list_style.find('option').each(function () {
+                if ($(this).attr('value') == $.cookie('style')) {
+                    $(this).attr('selected', 'selected');
+                }
+            });
+
+            list_header.find('option').each(function () {
+                if ($(this).attr('value') == $.cookie('header')) {
                     $(this).attr('selected', 'selected');
                 }
             });
 
             list_color.removeClass("active");
-            list_color.each(function(){
-                if($(this).attr('data-color') == $.cookie('color')){
+            list_color.each(function () {
+                if ($(this).attr('data-color') == $.cookie('color')) {
                     $(this).addClass('active');
                 }
             });
-            setTheme($.cookie('menu_style'), $.cookie('style'),$.cookie('header'), $.cookie('color'));
+            setTheme($.cookie('menu_style'), $.cookie('style'), $.cookie('header'), $.cookie('color'));
         }
     };
 
     // SELECT MENU STYLE EVENT
-    list_menu.on('change', function(){
-        list_color.each(function() {
-            if($(this).hasClass('active')){
-                color_active  = $(this).attr('data-color');
+    list_menu.on('change', function () {
+        list_color.each(function () {
+            if ($(this).hasClass('active')) {
+                color_active = $(this).attr('data-color');
             }
         });
         // No Menu style 3 fixed
@@ -146,20 +146,20 @@ $(function () {
         setTheme($(this).val(), list_style.val(), list_header.val(), color_active);
     });
     // SELECT STYLE EVENT
-    list_style.on('change', function() {
-        list_color.each(function() {
-            if($(this).hasClass('active')){
-                color_active  = $(this).attr('data-color');
+    list_style.on('change', function () {
+        list_color.each(function () {
+            if ($(this).hasClass('active')) {
+                color_active = $(this).attr('data-color');
             }
         });
         setTheme(list_menu.val(), $(this).val(), list_header.val(), color_active);
     });
 
     // SELECT HEADER EVENT
-    list_header.on('change', function() {
-        list_color.each(function() {
-            if($(this).hasClass('active')){
-                color_active  = $(this).attr('data-color');
+    list_header.on('change', function () {
+        list_color.each(function () {
+            if ($(this).hasClass('active')) {
+                color_active = $(this).attr('data-color');
             }
         });
         // No Menu style 3 fixed
@@ -169,7 +169,7 @@ $(function () {
         setTheme(list_menu.val(), list_style.val(), $(this).val(), color_active);
     });
     // LI CLICK EVENT
-    list_color.on('click', function() {
+    list_color.on('click', function () {
         list_color.removeClass('active');
         $(this).addClass('active');
         setTheme(list_menu.val(), list_style.val(), list_header.val(), $(this).attr('data-color'));
@@ -178,10 +178,10 @@ $(function () {
     //END THEME SETTING
 
     //BEGIN FULL SCREEN
-    $('.btn-fullscreen').click(function() {
+    $('.btn-fullscreen').click(function () {
 
         if (!document.fullscreenElement &&    // alternative standard method
-            !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {  // current working methods
+            !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {  // current working methods
             if (document.documentElement.requestFullscreen) {
                 document.documentElement.requestFullscreen();
             } else if (document.documentElement.msRequestFullscreen) {
@@ -207,13 +207,13 @@ $(function () {
 
     // BEGIN FORM CHAT
     $('.btn-chat').click(function () {
-        if($('#chat-box').is(':visible')){
+        if ($('#chat-box').is(':visible')) {
             $('#chat-form').toggle('slide', {
                 direction: 'right'
             }, 500);
             $('#chat-form').slimScroll();
             $('#chat-box').hide();
-        } else{
+        } else {
             $('#chat-form').toggle('slide', {
                 direction: 'right'
             }, 500);
@@ -224,18 +224,18 @@ $(function () {
             });
         }
     });
-    $('.chat-box-close').click(function(){
+    $('.chat-box-close').click(function () {
         $('#chat-box').hide();
         $('#chat-form .chat-group a').removeClass('active');
     });
-    $('.chat-form-close').click(function(){
+    $('.chat-form-close').click(function () {
         $('#chat-form').toggle('slide', {
             direction: 'right'
         }, 500);
         $('#chat-box').hide();
     });
 
-    $('#chat-form .chat-group a').unbind('*').click(function(){
+    $('#chat-form .chat-group a').unbind('*').click(function () {
         $('#chat-box').hide();
         $('#chat-form .chat-group a').removeClass('active');
         $(this).addClass('active');
@@ -245,13 +245,13 @@ $(function () {
         $('#chat-box > .chat-box-header > span.user-status').removeClass().addClass(userStatus);
         var chatBoxStatus = $('span.user-status', '#chat-box');
         var chatBoxStatusShow = $('#chat-box > .chat-box-header > small');
-        if(chatBoxStatus.hasClass('is-online')){
+        if (chatBoxStatus.hasClass('is-online')) {
             chatBoxStatusShow.html('Online');
-        } else if(chatBoxStatus.hasClass('is-offline')){
+        } else if (chatBoxStatus.hasClass('is-offline')) {
             chatBoxStatusShow.html('Offline');
-        } else if(chatBoxStatus.hasClass('is-busy')){
+        } else if (chatBoxStatus.hasClass('is-busy')) {
             chatBoxStatusShow.html('Busy');
-        } else if(chatBoxStatus.hasClass('is-idle')){
+        } else if (chatBoxStatus.hasClass('is-idle')) {
             chatBoxStatusShow.html('Idle');
         }
 
@@ -260,14 +260,14 @@ $(function () {
         var h_title = $("#chat-box > .chat-box-header").height();
         var top = ($('#chat-box').is(':visible') ? (offset.top - h_title - 40) : (offset.top + h_title - 20));
 
-        if((top + $('#chat-box').height()) > h_main){
-            top = h_main - 	$('#chat-box').height();
+        if ((top + $('#chat-box').height()) > h_main) {
+            top = h_main - $('#chat-box').height();
         }
 
-        $('#chat-box').css({'top': top});
+        $('#chat-box').css({ 'top': top });
 
-        if(!$('#chat-box').is(':visible')){
-            $('#chat-box').toggle('slide',{
+        if (!$('#chat-box').is(':visible')) {
+            $('#chat-box').toggle('slide', {
                 direction: 'right'
             }, 500);
         }
@@ -277,11 +277,11 @@ $(function () {
             "height": "250px",
             'width': '340px',
             "wheelStep": 30,
-            "scrollTo": $(this).height() 
+            "scrollTo": $(this).height()
         });
     });
     // Add content to form
-    $('.chat-textarea input').on("keypress", function(e){
+    $('.chat-textarea input').on("keypress", function (e) {
         var $obj = $(this);
         var $me = $obj.parent().parent().find('ul.chat-box-body');
         var $my_avt = 'https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg';
@@ -296,38 +296,38 @@ $(function () {
                 if (m < 10) m = "0" + m;
                 $obj.val(""); // CLEAR TEXT ON TEXTAREA
 
-                var $element = ""; 
+                var $element = "";
                 $element += "<li>";
                 $element += "<p>";
-                $element += "<img class='avt' src='"+$my_avt+"'>";
+                $element += "<img class='avt' src='" + $my_avt + "'>";
                 $element += "<span class='user'>John Doe</span>";
                 $element += "<span class='time'>" + h + ":" + m + "</span>";
                 $element += "</p>";
-                $element = $element + "<p>" + $content +  "</p>";
+                $element = $element + "<p>" + $content + "</p>";
                 $element += "</li>";
-                
+
                 $me.append($element);
                 var height = 0;
-                $me.find('li').each(function(i, value){
+                $me.find('li').each(function (i, value) {
                     height += parseInt($(this).height());
                 });
 
                 height += '';
-                $me.scrollTop(height);  
+                $me.scrollTop(height);
 
                 // RANDOM RESPOND CHAT
                 var $res = "";
                 $res += "<li class='odd'>";
                 $res += "<p>";
-                $res += "<img class='avt' src='"+$your_avt+"'>";
+                $res += "<img class='avt' src='" + $your_avt + "'>";
                 $res += "<span class='user'>Swlabs</span>";
                 $res += "<span class='time'>" + h + ":" + m + "</span>";
                 $res += "</p>";
                 $res = $res + "<p>" + "Yep! It's so funny :)" + "</p>";
                 $res += "</li>";
-                setTimeout(function(){
+                setTimeout(function () {
                     $me.append($res);
-                    $me.scrollTop(height+100);        
+                    $me.scrollTop(height + 100);
                 }, 1000);
             }
         }
@@ -335,30 +335,30 @@ $(function () {
     //END FORM CHAT
 
     //BEGIN PORTLET
-    $(".portlet").each(function(index, element) {
+    $(".portlet").each(function (index, element) {
         var me = $(this);
-        $(">.portlet-header>.tools>i", me).click(function(e){
-            if($(this).hasClass('fa-chevron-up')){
+        $(">.portlet-header>.tools>i", me).click(function (e) {
+            if ($(this).hasClass('fa-chevron-up')) {
                 $(">.portlet-body", me).slideUp('fast');
                 $(this).removeClass('fa-chevron-up').addClass('fa-chevron-down');
             }
-            else if($(this).hasClass('fa-chevron-down')){
+            else if ($(this).hasClass('fa-chevron-down')) {
                 $(">.portlet-body", me).slideDown('fast');
                 $(this).removeClass('fa-chevron-down').addClass('fa-chevron-up');
             }
-            else if($(this).hasClass('fa-cog')){
+            else if ($(this).hasClass('fa-cog')) {
                 //Show modal
             }
-            else if($(this).hasClass('fa-refresh')){
+            else if ($(this).hasClass('fa-refresh')) {
                 //$(">.portlet-body", me).hide();
                 $(">.portlet-body", me).addClass('wait');
 
-                setTimeout(function(){
+                setTimeout(function () {
                     //$(">.portlet-body>div", me).show();
                     $(">.portlet-body", me).removeClass('wait');
                 }, 1000);
             }
-            else if($(this).hasClass('fa-times')){
+            else if ($(this).hasClass('fa-times')) {
                 me.remove();
             }
         });
@@ -366,29 +366,29 @@ $(function () {
     //END PORTLET
 
     //BEGIN BACK TO TOP
-    $(window).scroll(function(){
+    $(window).scroll(function () {
         if ($(this).scrollTop() < 200) {
-            $('#totop') .fadeOut();
+            $('#totop').fadeOut();
         } else {
-            $('#totop') .fadeIn();
+            $('#totop').fadeIn();
         }
     });
-    $('#totop').on('click', function(){
-        $('html, body').animate({scrollTop:0}, 'fast');
+    $('#totop').on('click', function () {
+        $('html, body').animate({ scrollTop: 0 }, 'fast');
         return false;
     });
     //END BACK TO TOP
 
     //BEGIN CHECKBOX TABLE
-    $('.checkall').on('ifChecked ifUnchecked', function(event) {
+    $('.checkall').on('ifChecked ifUnchecked', function (event) {
         if (event.type == 'ifChecked') {
             $(this).closest('table').find('input[type=checkbox]').iCheck('check');
         } else {
             $(this).closest('table').find('input[type=checkbox]').iCheck('uncheck');
         }
     });
-        //ONLY FOR USER_PROFILE PAGE
-    $('.checkall-email').on('ifChecked ifUnchecked', function(event) {
+    //ONLY FOR USER_PROFILE PAGE
+    $('.checkall-email').on('ifChecked ifUnchecked', function (event) {
         if (event.type == 'ifChecked') {
             $(this).closest('.tab-pane').find('input[type=checkbox]').iCheck('check');
         } else {
@@ -397,22 +397,22 @@ $(function () {
     });
     //END CHECKBOX TABLE
 
-    $('.option-demo').hover(function() {
+    $('.option-demo').hover(function () {
         $(this).append("<div class='demo-layout animated fadeInUp'><i class='fa fa-magic mrs'></i>Demo</div>");
-    }, function() {
+    }, function () {
         $('.demo-layout').remove();
     });
-      $('#header-topbar-page .demo-layout').live('click', function() {
+    $('#header-topbar-page .demo-layout').on('click', function () {
         var HtmlOption = $(this).parent().detach();
-        $('#header-topbar-option-demo').html(HtmlOption).addClass('animated flash').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+        $('#header-topbar-option-demo').html(HtmlOption).addClass('animated flash').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
             $(this).removeClass('animated flash');
         });
         $('#header-topbar-option-demo').find('.demo-layout').remove();
         return false;
     });
-    $('#title-breadcrumb-page .demo-layout').live('click', function() {
+    $('#title-breadcrumb-page .demo-layout').on('click', function () {
         var HtmlOption = $(this).parent().html();
-        $('#title-breadcrumb-option-demo').html(HtmlOption).addClass('animated flash').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+        $('#title-breadcrumb-option-demo').html(HtmlOption).addClass('animated flash').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
             $(this).removeClass('animated flash');
         });
         $('#title-breadcrumb-option-demo').find('.demo-layout').remove();
@@ -448,7 +448,7 @@ $(function () {
             endDate: moment(),
             opens: 'left',
         },
-        function(start, end) {
+        function (start, end) {
             $('.reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
             $('input[name="datestart"]').val(start.format("YYYY-MM-DD"));
             $('input[name="endstart"]').val(end.format("YYYY-MM-DD"));

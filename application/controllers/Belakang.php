@@ -22,7 +22,7 @@ class Belakang extends CI_Controller
         if (file_exists('upload/profil/'.$data->foto_adm)) {
             $this->foto = base_url('upload/profil/'.$data->foto_adm);
         } else {
-            $this->foto = base_url('assets/adminto/assets/images/users/avatar-1.jpg');
+            $this->foto = base_url('assets/admin/images/avatar/avatar5.png');
         }
         $this->load->helper(array('file', 'resize'));
     }
@@ -32,63 +32,6 @@ class Belakang extends CI_Controller
             'title'	=> 'Dashboard',
             'page'	=> 'admin/dashboard');
         $this->template($params);
-    }
-    public function prodi()
-    {
-        if($this->u3 == "reg_data"){
-            $list = $this->M_Universal->get_datatables($this->id);
-            $data = array();
-            $no = $_POST['start'];
-            foreach ($list as $al) {
-                $no++;
-                $row = array();
-                $row[] = $no++;
-                $row[] = $al->kd_prodi;
-                $row[] = $al->nama;
-                $row[] = '<a class="btn btn-info" href="'.base_url().'Panel/peserta/detail?id='.$al->id_peserta.'" target="_blank">Lihat</a>';
-                $data[] = $row;
-            }
-             $output = array(
-                "data" => $data
-            );
-            // $output = array(
-            //     "draw" => (!isset($_POST['draw']))? 1:$_POST['draw'],
-            //     "recordsTotal" => $this->M_admin->count_all($this->id),
-            //     "recordsFiltered" => $this->M_admin->count_filtered($this->id),
-            //     "data" => $data
-            // );
-            echo json_encode($output);
-        } else if ($this->u4 == "tambah") {
-            $config_rules = [
-                array(
-                    'field' => 'kode_prodi',
-                    'label' => 'Kode Prodi',
-                    'rules' => 'required|trim|numeric'
-                ),
-                array(
-                    'field' => 'nama_prodi',
-                    'label' => 'Nama Prodi',
-                    'rules' => 'required|trim'
-                ),
-            ];
-            $this->load->library('form_validation');
-            $this->form_validation($config_rules);
-            if($this->form_validation->run() == true){
-                $post = [
-                    'kd_prodi' => $this->input->post('kode_prodi',true),
-                    'nama_prodi' => $this->input->post('nama_prodi',true)
-                ];
-                $insert			 = $this->M_Universal->insert($post, 'admin');
-                ($insert) ?  $this->notifikasi->suksesAdd("tambah data baru") : $this->notifikasi->gagalAdd();
-                redirect(base_url('prodi'), 'refresh');
-            }
-        }else {
-            $params = [
-                'title' => "Prodi",
-                'page' => 'admin/prodi/v_prodi'
-            ];
-            $this->template($params);
-        }
     }
     public function template($params = array())
     {

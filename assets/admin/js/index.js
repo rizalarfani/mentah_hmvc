@@ -12,18 +12,18 @@ $(function () {
         "height": '250px',
         "wheelStep": 30
     });
-    $( ".sortable" ).sortable();
-    $( ".sortable" ).disableSelection();
+    $(".sortable").sortable();
+    $(".sortable").disableSelection();
     //END TO-DO-LIST
 
     //BEGIN AREA CHART SPLINE
-    var d6_1 = [["Jan", 67],["Feb", 91],["Mar", 36],["Apr", 150],["May", 28],["Jun", 123],["Jul", 38]];
-    var d6_2 = [["Jan", 59],["Feb", 49],["Mar", 45],["Apr", 94],["May", 76],["Jun", 22],["Jul", 31]];
+    var d6_1 = [["Jan", 67], ["Feb", 91], ["Mar", 36], ["Apr", 150], ["May", 28], ["Jun", 123], ["Jul", 38]];
+    var d6_2 = [["Jan", 59], ["Feb", 49], ["Mar", 45], ["Apr", 94], ["May", 76], ["Jun", 22], ["Jul", 31]];
     $.plot("#area-chart-spline", [{
         data: d6_1,
         label: "Upload",
         color: "#ffce54"
-    },{
+    }, {
         data: d6_2,
         label: "Download",
         color: "#01b6ad"
@@ -71,14 +71,14 @@ $(function () {
         "wheelStep": 30,
         "scrollTo": "100px"
     });
-    $('.chat-form input#input-chat').on("keypress", function(e){
+    $('.chat-form input#input-chat').on("keypress", function (e) {
 
         var $obj = $(this);
         var $me = $obj.parents('.portlet-body').find('ul.chats');
-        
+
         if (e.which == 13) {
             var content = $obj.val();
-            
+
             if (content !== "") {
                 $me.addClass(content);
                 var d = new Date();
@@ -86,8 +86,8 @@ $(function () {
                 var m = d.getMinutes();
                 if (m < 10) m = "0" + m;
                 $obj.val(""); // CLEAR TEXT ON TEXTAREA
-                
-                var element = ""; 
+
+                var element = "";
                 element += "<li class='in'>";
                 element += "<img class='avatar' src='https://s3.amazonaws.com/uifaces/faces/twitter/kolage/48.jpg'>";
                 element += "<div class='message'>";
@@ -97,10 +97,10 @@ $(function () {
                 element += "<span class='chat-body'>" + content + "</span>";
                 element += "</div>";
                 element += "</li>";
-                
+
                 $me.append(element);
                 var height = 0;
-                $me.find('li').each(function(i, value){
+                $me.find('li').each(function (i, value) {
                     height += parseInt($(this).height());
                 });
 
@@ -112,7 +112,7 @@ $(function () {
             }
         }
     });
-    $('.chat-form span#btn-chat').on("click", function(e){
+    $('.chat-form span#btn-chat').on("click", function (e) {
 
         e.preventDefault();
         var $obj = $(this).parents('.chat-form').find('input#input-chat');
@@ -126,8 +126,8 @@ $(function () {
             var m = d.getMinutes();
             if (m < 10) m = "0" + m;
             $obj.val(""); // CLEAR TEXT ON TEXTAREA
-            
-            var element = ""; 
+
+            var element = "";
             element += "<li class='in'>";
             element += "<img class='avatar' src='https://s3.amazonaws.com/uifaces/faces/twitter/kolage/48.jpg'>";
             element += "<div class='message'>";
@@ -137,10 +137,10 @@ $(function () {
             element += "<span class='chat-body'>" + content + "</span>";
             element += "</div>";
             element += "</li>";
-            
+
             $me.append(element);
             var height = 0;
-            $me.find('li').each(function(i, value){
+            $me.find('li').each(function (i, value) {
                 height += parseInt($(this).height());
             });
             height += '';
@@ -150,25 +150,25 @@ $(function () {
                 "wheelStep": 30,
             });
         }
-        
+
     });
     //END CHAT FORM
 
     //BEGIN COUNTER FOR SUMMARY BOX
     counterNum($(".profit h4 span:first-child"), 189, 112, 1, 30);
     counterNum($(".income h4 span:first-child"), 636, 812, 1, 50);
-    counterNum($(".task h4 span:first-child"), 103, 155 , 1, 100);
+    counterNum($(".task h4 span:first-child"), 103, 155, 1, 100);
     counterNum($(".visit h4 span:first-child"), 310, 376, 1, 500);
     function counterNum(obj, start, end, step, duration) {
         $(obj).html(start);
-        setInterval(function(){
+        setInterval(function () {
             var val = Number($(obj).html());
             if (val < end) {
-                $(obj).html(val+step);
+                $(obj).html(val + step);
             } else {
                 clearInterval();
             }
-        },duration);
+        }, duration);
     }
     //END COUNTER FOR SUMMARY BOX
 });

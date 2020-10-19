@@ -8,7 +8,6 @@ class Admin_login extends CI_Controller
         $this->load->helper(array('string', 'cookie'));
         $this->load->model('M_Universal');
     }
-
     private $cookie = "qOaHm9J9lN4DvuC5hg7uJbmVuMLSeeWt";
     
     public function index()
@@ -60,7 +59,7 @@ class Admin_login extends CI_Controller
             $this->_daftarkan_session($row);
         } else {
             $this->notifikasi->failLogin();
-            redirect('Admin_login', 'refresh');
+            redirect('login', 'refresh');
         }
     }
 
@@ -74,6 +73,6 @@ class Admin_login extends CI_Controller
     {
         delete_cookie($this->cookie);
         $this->session->sess_destroy();
-        redirect('Admin_login');
+        redirect('login');
     }
 }

@@ -5,13 +5,8 @@ function get_value($tabel, $kunci, $id) {
 	$CI =& get_instance();
 
 	$q_ambil	= $CI->db->query("SELECT * FROM ".$tabel." WHERE ".$kunci." = '".$id."'")->row();
-
 	return $q_ambil;
-
 }
-
-
-
 function getURLFriendly($str) {
 
 		$string = preg_replace("/[-]+/", "-", preg_replace("/[^a-z0-9-]/", "",

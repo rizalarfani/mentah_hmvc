@@ -1,14 +1,5 @@
 <?php
-// ---------------------------------------------------- //
-//		Website Politeknik Harapan Bersama Tegal		//
-//			  Dibuat oleh Indra Dwi Hasta				//
-//		  http://bunghasta.com || @bunghasta			//
-//		  Menggunakan  Framework CodeIgniter			//
-// ---------------------------------------------------- //
-
-
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
- 
 function compress(){
 	$CI =& get_instance();
 	$buffer = $CI->output->get_output();

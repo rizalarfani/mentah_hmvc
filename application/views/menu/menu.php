@@ -23,18 +23,6 @@
                     </li>
                 </ul>
             </li>
-            <li id="data-master"><a href="javascript:void(0);"><i class="fa fa-align-justify">
-                <div class="icon-bg bg-green"></div>
-                </i><span class="menu-title">Data Master</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li id="prodi"><a href="<?php echo base_url('prodi');?>"><i class="fa fa-user"></i><span class="submenu-title">Prodi</span></a>
-                    </li>
-                    <li id="slider"><a href="<?php echo base_url('slider');?>"><i class="fa fa-sliders-h"></i><span class="submenu-title">Slider</span></a>
-                    </li>
-                    <!-- <li id="kebutuhan"><a href="<?php echo base_url('kebutuhan_khusus');?>"><i class="fa fa-user"></i><span class="submenu-title">Data kebutuhan khusus</span></a>
-                    </li> -->
-                </ul>
-            </li>
         </ul>
     </div>
 </nav>

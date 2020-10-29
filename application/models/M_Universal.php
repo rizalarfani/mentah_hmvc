@@ -47,4 +47,21 @@ class M_Universal extends CI_Model
         $data = $this->db->get($tabel)->result();
         return (count((array)$data) > 0) ? $data : false;
     }
+
+    public function file_check($str)
+    {
+        $allowed_mime_type_arr = array('application/pdf', 'image/gif', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/x-png', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        $mime = get_mime_by_extension($_FILES[$str]['name']);
+        if (isset($_FILES[$str]['name']) && $_FILES[$str]['name'] != "") {
+            if (in_array($mime, $allowed_mime_type_arr)) {
+                return true;
+            } else {
+                $this->form_validation->set_message('file_check', 'Please select only jpg/png file.');
+                return false;
+            }
+        } else {
+            $this->form_validation->set_message('file_check', 'Please choose a file to upload.');
+            return false;
+        }
+    }
 }

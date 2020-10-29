@@ -38,4 +38,13 @@ class M_Universal extends CI_Model
     {
         return ($this->db->where($where)->delete($tabel)) ? true : false ;
     }
+	public function getOrderBy($where, $tabel, $order)
+    {
+        if (!empty($where)) {
+            $this->db->where($where);
+        }
+        $this->db->order_by($order);
+        $data = $this->db->get($tabel)->result();
+        return (count((array)$data) > 0) ? $data : false;
+    }
 }
